@@ -27,40 +27,10 @@ void main(void)
 	{
 		count = 64000;
 		#asm
-			        
 		    clrf portc
-            
-            loop1:  DECFSZ count,f
-			        goto loop1
-			        NOP
-			loop2:  DECFSZ count,f
-			        goto loop2
-			        NOP
-			loop3:  DECFSZ count,f
-			        goto loop3
-			        NOP
-			loop4:  DECFSZ count,f
-			        goto loop4
-			        NOP
-			loop5:  DECFSZ count,f
-			        goto loop5
-			        NOP
-			loop6:  DECFSZ count,f
-			        goto loop6
-			        NOP
-			loop7:  DECFSZ count,f
-			        goto loop7
-			        NOP
-			loop8:  DECFSZ count,f
-			        goto loop8
-			        NOP
             
 			movlw 0b00000001
 			movwf portc
-			
-		    loop0:  DECFSZ count,f
-			        goto loop0
-			        NOP
 
 		#endasm
 	}

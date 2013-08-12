@@ -1,3 +1,9 @@
->>> Warning 202 "C:\Users\user\Documents\Digital Systems 3\Digital Systems 3\Projects\1\main.h" Line 13(7,8): Variable never used:   f
+>>> Warning 202 "G:\Digital Systems 3\Projects\16F690\Tutorial 1.1\main.h" Line 7(12,18): Variable never used:   count1
+>>> Warning 202 "G:\Digital Systems 3\Projects\16F690\Tutorial 1.1\main.h" Line 8(12,18): Variable never used:   count2
+>>> Warning 202 "G:\Digital Systems 3\Projects\16F690\Tutorial 1.1\main.h" Line 9(12,18): Variable never used:   count3
+>>> Warning 202 "G:\Digital Systems 3\Projects\16F690\Tutorial 1.1\main.h" Line 10(12,18): Variable never used:   count4
+>>> Warning 202 "G:\Digital Systems 3\Projects\16F690\Tutorial 1.1\main.h" Line 11(12,18): Variable never used:   count5
+>>> Warning 202 "G:\Digital Systems 3\Projects\16F690\Tutorial 1.1\main.h" Line 12(12,18): Variable never used:   count6
+>>> Warning 202 "G:\Digital Systems 3\Projects\16F690\Tutorial 1.1\main.h" Line 13(7,8): Variable never used:   f
       Memory usage:   ROM=2%      RAM=6% - 6%
-      0 Errors,  1 Warnings.
+      0 Errors,  7 Warnings.

@@ -1,4 +1,4 @@
-CCS PCM C Compiler, Version 4.057, 4010               11-Aug-13 14:02
+CCS PCM C Compiler, Version 4.057, 4010               12-Aug-13 19:53
 
                Filename: main.lst
 
@@ -103,70 +103,71 @@ CCS PCM C Compiler, Version 4.057, 4010               11-Aug-13 14:02
 .................... 	{ 
 .................... 		count = 64000; 
 002A:  CLRF   25
-.................... 		count1 = 64000; 
-002B:  CLRF   26
-.................... 		count2 = 64000; 
-002C:  CLRF   27
-.................... 		count3 = 64000; 
-002D:  CLRF   28
-.................... 		count4 = 64000; 
-002E:  CLRF   29
-.................... 		count5 = 64000; 
-002F:  CLRF   2A
-.................... 		count6 = 64000; 
-0030:  CLRF   2B
 .................... 		#asm 
+.................... 			         
 .................... 		    clrf portc 
-0031:  CLRF   07
-.................... 			 
-.................... 			loop:	DECFSZ count,f 
-0032:  DECFSZ 25,F
-.................... 					goto loop 
-0033:  GOTO   032
-.................... 					NOP 
-0034:  NOP
-.................... 			loop1:  DECFSZ count1,f 
-0035:  DECFSZ 26,F
+002B:  CLRF   07
+....................              
+....................             loop1:  DECFSZ count,f 
+002C:  DECFSZ 25,F
 .................... 			        goto loop1 
+002D:  GOTO   02C
+.................... 			        NOP 
+002E:  NOP
+.................... 			loop2:  DECFSZ count,f 
+002F:  DECFSZ 25,F
+.................... 			        goto loop2 
+0030:  GOTO   02F
+.................... 			        NOP 
+0031:  NOP
+.................... 			loop3:  DECFSZ count,f 
+0032:  DECFSZ 25,F
+.................... 			        goto loop3 
+0033:  GOTO   032
+.................... 			        NOP 
+0034:  NOP
+.................... 			loop4:  DECFSZ count,f 
+0035:  DECFSZ 25,F
+.................... 			        goto loop4 
 0036:  GOTO   035
 .................... 			        NOP 
 0037:  NOP
-.................... 			loop2:  DECFSZ count2,f 
-0038:  DECFSZ 27,F
-.................... 			        goto loop2 
+.................... 			loop5:  DECFSZ count,f 
+0038:  DECFSZ 25,F
+.................... 			        goto loop5 
 0039:  GOTO   038
 .................... 			        NOP 
 003A:  NOP
-.................... 			loop3:  DECFSZ count3,f 
-003B:  DECFSZ 28,F
-.................... 			        goto loop3 
+.................... 			loop6:  DECFSZ count,f 
+003B:  DECFSZ 25,F
+.................... 			        goto loop6 
 003C:  GOTO   03B
 .................... 			        NOP 
 003D:  NOP
-.................... 			loop4:  DECFSZ count4,f 
-003E:  DECFSZ 29,F
-.................... 			        goto loop4 
+.................... 			loop7:  DECFSZ count,f 
+003E:  DECFSZ 25,F
+.................... 			        goto loop7 
 003F:  GOTO   03E
 .................... 			        NOP 
 0040:  NOP
-.................... 			loop5:  DECFSZ count5,f 
-0041:  DECFSZ 2A,F
-.................... 			        goto loop5 
+.................... 			loop8:  DECFSZ count,f 
+0041:  DECFSZ 25,F
+.................... 			        goto loop8 
 0042:  GOTO   041
 .................... 			        NOP 
 0043:  NOP
-.................... 			loop6:  DECFSZ count6,f 
-0044:  DECFSZ 2B,F
-.................... 			        goto loop6 
-0045:  GOTO   044
-.................... 			        NOP 
-0046:  NOP
-.................... 			         
 ....................              
 .................... 			movlw 0b00000001 
-0047:  MOVLW  01
+0044:  MOVLW  01
 .................... 			movwf portc 
-0048:  MOVWF  07
+0045:  MOVWF  07
+.................... 			 
+.................... 		    loop0:  DECFSZ count,f 
+0046:  DECFSZ 25,F
+.................... 			        goto loop0 
+0047:  GOTO   046
+.................... 			        NOP 
+0048:  NOP
 ....................  
 .................... 		#endasm 
 .................... 	} 

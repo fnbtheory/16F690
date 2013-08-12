@@ -24,20 +24,22 @@
 ROM Allocation:
 0004  main
 0004  @cinit
-0032  loop
-0035  loop1
-0038  loop2
-003B  loop3
-003E  loop4
-0041  loop5
-0044  loop6
+002C  loop1
+002F  loop2
+0032  loop3
+0035  loop4
+0038  loop5
+003B  loop6
+003E  loop7
+0041  loop8
+0046  loop0
 
 Project Directory:
-    C:\Users\user\Documents\Digital Systems 3\Digital Systems 3\Projects\1\
+    G:\Digital Systems 3\Projects\16F690\Tutorial 1.1\
 
 Project Files:
     main.c
-    ..\..\..\..\..\..\..\PROGRA~2\PICC\devices\16F690.h
+    C:\PROGRA~2\PICC\devices\16F690.h
     main.h
 
 Units:

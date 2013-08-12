@@ -1,0 +1,185 @@
+CCS PCM C Compiler, Version 4.057, 4010               11-Aug-13 14:02
+
+               Filename: main.lst
+
+               ROM used: 75 words (2%)
+                         Largest free fragment is 1973
+               RAM used: 14 (6%) at main() level
+                         14 (6%) worst case
+               Stack:    0 locations
+
+*
+0000:  NOP
+0001:  MOVLW  00
+0002:  MOVWF  0A
+0003:  GOTO   004
+.................... #include <16F690.h> 
+.................... //////// Standard Header file for the PIC16F690 device //////////////// 
+.................... #device PIC16F690 
+.................... #list 
+....................  
+.................... #device adc=8 
+....................  
+.................... #FUSES NOWDT                    //No Watch Dog Timer 
+.................... #FUSES HS 
+.................... #FUSES INTRC_IO                 //Low power osc < 200 khz  LP 
+.................... #FUSES NOPROTECT                //Code not protected from reading 
+.................... #FUSES NOBROWNOUT               //No brownout reset 
+.................... #FUSES NOMCLR                   //Master Clear pin used for I/O 
+.................... #FUSES NOCPD                    //No EE protection 
+.................... #FUSES NOPUT                    //No Power Up Timer 
+.................... #FUSES NOIESO                   //Internal External Switch Over mode disabled 
+.................... #FUSES NOFCMEN                  //Fail-safe clock monitor disabled 
+....................  
+.................... #include "main.h" 
+.................... #byte portc = 0x07 
+....................  
+.................... #define status 0x03 
+.................... #define rp0 0x05 
+....................  
+.................... int count = 0; 
+*
+001F:  CLRF   25
+.................... int count1 = 0; 
+0020:  CLRF   26
+.................... int count2 = 0; 
+0021:  CLRF   27
+.................... int count3 = 0; 
+0022:  CLRF   28
+.................... int count4 = 0; 
+0023:  CLRF   29
+.................... int count5 = 0; 
+0024:  CLRF   2A
+.................... int count6 = 0; 
+0025:  CLRF   2B
+.................... int f = 0; 
+0026:  CLRF   2C
+....................  
+.................... void footer(); 
+....................  
+....................  
+.................... #use delay(clock=32000) 
+....................  
+.................... void main(void) 
+.................... { 
+*
+0004:  CLRF   04
+0005:  BCF    03.7
+0006:  MOVLW  1F
+0007:  ANDWF  03,F
+0008:  MOVLW  01
+0009:  BSF    03.5
+000A:  MOVWF  0F
+000B:  MOVF   0F,W
+000C:  BCF    03.5
+000D:  BSF    03.6
+000E:  BCF    1F.0
+000F:  BCF    1F.1
+0010:  BCF    1F.2
+0011:  BCF    1F.3
+0012:  BCF    03.6
+0013:  BCF    1F.6
+0014:  MOVLW  00
+0015:  BSF    03.6
+0016:  MOVWF  1E
+0017:  CLRF   19
+0018:  CLRF   1A
+0019:  BSF    03.5
+001A:  CLRF   1E
+001B:  BCF    03.5
+001C:  CLRF   1B
+001D:  BCF    03.6
+001E:  BCF    0D.5
+.................... 	#asm 
+.................... 		bsf status, rp0 
+*
+0027:  BSF    03.5
+.................... 		clrf portc 
+0028:  CLRF   07
+.................... 		bcf status, rp0 
+0029:  BCF    03.5
+.................... 	#endasm 
+.................... 	while(true) 
+.................... 	{ 
+.................... 		count = 64000; 
+002A:  CLRF   25
+.................... 		count1 = 64000; 
+002B:  CLRF   26
+.................... 		count2 = 64000; 
+002C:  CLRF   27
+.................... 		count3 = 64000; 
+002D:  CLRF   28
+.................... 		count4 = 64000; 
+002E:  CLRF   29
+.................... 		count5 = 64000; 
+002F:  CLRF   2A
+.................... 		count6 = 64000; 
+0030:  CLRF   2B
+.................... 		#asm 
+.................... 		    clrf portc 
+0031:  CLRF   07
+.................... 			 
+.................... 			loop:	DECFSZ count,f 
+0032:  DECFSZ 25,F
+.................... 					goto loop 
+0033:  GOTO   032
+.................... 					NOP 
+0034:  NOP
+.................... 			loop1:  DECFSZ count1,f 
+0035:  DECFSZ 26,F
+.................... 			        goto loop1 
+0036:  GOTO   035
+.................... 			        NOP 
+0037:  NOP
+.................... 			loop2:  DECFSZ count2,f 
+0038:  DECFSZ 27,F
+.................... 			        goto loop2 
+0039:  GOTO   038
+.................... 			        NOP 
+003A:  NOP
+.................... 			loop3:  DECFSZ count3,f 
+003B:  DECFSZ 28,F
+.................... 			        goto loop3 
+003C:  GOTO   03B
+.................... 			        NOP 
+003D:  NOP
+.................... 			loop4:  DECFSZ count4,f 
+003E:  DECFSZ 29,F
+.................... 			        goto loop4 
+003F:  GOTO   03E
+.................... 			        NOP 
+0040:  NOP
+.................... 			loop5:  DECFSZ count5,f 
+0041:  DECFSZ 2A,F
+.................... 			        goto loop5 
+0042:  GOTO   041
+.................... 			        NOP 
+0043:  NOP
+.................... 			loop6:  DECFSZ count6,f 
+0044:  DECFSZ 2B,F
+.................... 			        goto loop6 
+0045:  GOTO   044
+.................... 			        NOP 
+0046:  NOP
+.................... 			         
+....................              
+.................... 			movlw 0b00000001 
+0047:  MOVLW  01
+.................... 			movwf portc 
+0048:  MOVWF  07
+....................  
+.................... 		#endasm 
+.................... 	} 
+0049:  GOTO   02A
+.................... } 
+....................  
+.................... //              /)/) 
+.................... //             ( 0 0) 
+.................... //             /'-._) 
+.................... //            /#/ 
+.................... //           /#/	Tighty Whities (Pty) Ltd. 
+.................... //          /#/		(c) 2013. For Ze Party. 
+004A:  GOTO   04A
+
+Configuration Fuses:
+   Word  1: 30D4   INTRC_IO NOPROTECT NOBROWNOUT NOMCLR NOCPD NOWDT NOPUT NOIESO NOFCMEN

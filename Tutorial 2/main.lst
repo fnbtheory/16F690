@@ -1,0 +1,129 @@
+CCS PCM C Compiler, Version 4.038, 15176               14-Aug-13 09:35
+
+               Filename: main.lst
+
+               ROM used: 72 words (2%)
+                         Largest free fragment is 2048
+               RAM used: 7 (3%) at main() level
+                         8 (3%) worst case
+               Stack:    1 locations
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   015
+0003:  NOP
+.................... #include <16F690.h> 
+.................... //////// Standard Header file for the PIC16F690 device //////////////// 
+.................... #device PIC16F690 
+.................... #list 
+....................  
+.................... #device adc=8 
+....................  
+.................... #FUSES NOWDT                    //No Watch Dog Timer 
+.................... #FUSES HS 
+.................... #FUSES INTRC_IO                 //Low power osc < 200 khz  LP 
+.................... #FUSES NOPROTECT                //Code not protected from reading 
+.................... #FUSES NOBROWNOUT               //No brownout reset 
+.................... #FUSES NOMCLR                   //Master Clear pin used for I/O 
+.................... #FUSES NOCPD                    //No EE protection 
+.................... #FUSES NOPUT                    //No Power Up Timer 
+.................... #FUSES NOIESO                   //Internal External Switch Over mode disabled 
+.................... #FUSES NOFCMEN                  //Fail-safe clock monitor disabled 
+....................  
+.................... #include "main.h" 
+....................  
+....................  
+....................  
+....................  
+.................... #use delay(clock=32000) 
+0004:  MOVLW  02
+0005:  SUBWF  27,F
+0006:  BTFSS  03.0
+0007:  GOTO   014
+0008:  MOVLW  27
+0009:  MOVWF  04
+000A:  BCF    03.7
+000B:  MOVF   00,W
+000C:  BTFSC  03.2
+000D:  GOTO   014
+000E:  GOTO   012
+000F:  GOTO   010
+0010:  GOTO   011
+0011:  NOP
+0012:  DECFSZ 00,F
+0013:  GOTO   00F
+0014:  RETLW  00
+....................  
+.................... void main(void) 
+.................... { 
+0015:  CLRF   04
+0016:  BCF    03.7
+0017:  MOVLW  1F
+0018:  ANDWF  03,F
+0019:  MOVLW  01
+001A:  BSF    03.5
+001B:  MOVWF  0F
+001C:  BCF    03.5
+001D:  BSF    03.6
+001E:  BCF    1F.0
+001F:  BCF    1F.1
+0020:  BCF    1F.2
+0021:  BCF    1F.3
+0022:  BCF    03.6
+0023:  BCF    1F.6
+0024:  MOVLW  00
+0025:  BSF    03.6
+0026:  MOVWF  1E
+0027:  CLRF   19
+0028:  CLRF   1A
+0029:  BSF    03.5
+002A:  CLRF   1E
+002B:  BCF    03.5
+002C:  CLRF   1B
+002D:  BCF    03.6
+002E:  BCF    0D.5
+.................... 	SET_TRIS_C(0); 
+002F:  MOVLW  00
+0030:  BSF    03.5
+0031:  MOVWF  07
+.................... 	while(true) 
+.................... 	{ 
+.................... 		delay_ms(100); // Keep LED on for 100ms 
+0032:  MOVLW  64
+0033:  BCF    03.5
+0034:  MOVWF  27
+0035:  CALL   004
+.................... 		OUTPUT_LOW(PIN_C0); // Switch off the LED 
+0036:  BSF    03.5
+0037:  BCF    07.0
+0038:  BCF    03.5
+0039:  BCF    07.0
+.................... 		delay_ms(900); // Wait for 900ms 
+003A:  MOVLW  04
+003B:  MOVWF  26
+003C:  MOVLW  E1
+003D:  MOVWF  27
+003E:  CALL   004
+003F:  DECFSZ 26,F
+0040:  GOTO   03C
+.................... 		OUTPUT_HIGH(PIN_C0); // Switch on LED 
+0041:  BSF    03.5
+0042:  BCF    07.0
+0043:  BCF    03.5
+0044:  BSF    07.0
+.................... 	} 
+0045:  BSF    03.5
+0046:  GOTO   032
+.................... } 
+....................  
+.................... //              /)/) 
+.................... //             ( 0 0) 
+.................... //             /'-._) 
+.................... //            /#/ 
+.................... //           /#/	Tighty Whities (Pty) Ltd. 
+.................... //          /#/		(c) 2013. For Ze Party. 
+0047:  SLEEP
+
+Configuration Fuses:
+   Word  1: 30D4   INTRC_IO NOPROTECT NOBROWNOUT NOMCLR NOCPD NOWDT NOPUT NOIESO NOFCMEN

@@ -1,7 +1,7 @@
 004-005 @READ_PROGRAM_MEMORY8.P1
 007     portc
-015     CCP_1_LOW
 015-016 CCP_1
+015     CCP_1_LOW
 016     CCP_1_HIGH
 020     @SCRATCH
 021     @SCRATCH
@@ -10,37 +10,27 @@
 023     @SCRATCH
 024     @SCRATCH
 025     count
-026     count1
-027     count2
-028     count3
-029     count4
-02A     count5
-02B     count6
-02C     f
+026     f
 10D-10E @READ_PROGRAM_MEMORY8.P1
 11B.6   C2OUT
 11B.7   C1OUT
 
-ROM Allocation:
 0004  main
 0004  @cinit
-002C  loop1
-002F  loop2
-0032  loop3
-0035  loop4
-0038  loop5
-003B  loop6
-003E  loop7
-0041  loop8
-0046  loop0
-
-Project Directory:
-    G:\Digital Systems 3\Projects\16F690\Tutorial 1.1\
+0026  loop1
+0029  loop2
+002C  loop3
+002F  loop4
+0032  loop5
+0035  loop6
+0038  loop7
+003B  loop8
+0040  loop0
 
 Project Files:
-    main.c
-    C:\PROGRA~2\PICC\devices\16F690.h
-    main.h
+    E:\Digital Systems 3\Projects\16F690\Tutorial 1\main.c
+    C:\PROGRA~1\PICC\devices\16F690.h
+    E:\Digital Systems 3\Projects\16F690\Tutorial 1\main.h
 
 Units:
     main.c (main)
@@ -49,21 +39,16 @@ Compiler Settings:
     Processor:      PIC16F690
     Pointer Size:   16
     ADC Range:      0-255
-    Opt Level:      9
-    Short,Int,Long: UNSIGNED: 1,8,16
-    Float,Double:   32,32
-    ICD Provisions: Yes
-    Predefined symbols:
-       #define __DEBUG 1
-       #define __16F690 TRUE
+    Opt Level:      0
+    Short,Int,Long: 1,8,16
 
 Output Files:
-    Errors:      main.err
-    Ext Symbols: main.esym
-    INHX8:       main.hex
-    Symbols:     main.sym
-    List:        main.lst
-    Debug/COFF:  main.cof
-    Project:     main.PJT
-    Call Tree:   main.tre
-    Statistics:  main.sta
+    Errors:      E:\Digital Systems 3\Projects\16F690\Tutorial 1\main.err
+    Ext Symbols: E:\Digital Systems 3\Projects\16F690\Tutorial 1\main.esym
+    INHX8:\       main.hex
+    Symbols:\     main.sym
+    List:\        main.lst
+    Debug/COFF:\  main.cof
+    Project:     E:\Digital Systems 3\Projects\16F690\Tutorial 1\main.PJT
+    Call Tree:   E:\Digital Systems 3\Projects\16F690\Tutorial 1\main.tre
+    Statistics:  E:\Digital Systems 3\Projects\16F690\Tutorial 1\main.sta

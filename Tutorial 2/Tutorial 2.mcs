@@ -5,7 +5,7 @@ Version=1.0
 Location=main.ESYM
 Folder=Intermediary
 [File001]
-Location=E:\Digital Systems 3\Projects\16F690\Tutorial 1\main.o
+Location=E:\Digital Systems 3\Projects\16F690\Tutorial 2\main.o
 Folder=Intermediary
 [File002]
 Location=main.HEX

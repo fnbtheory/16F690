@@ -25,13 +25,13 @@ void main(void)
 	#endasm
 	while(true)
 	{
-		count = 64000;
+		count = 255; // Sets the count to 255
 		#asm
 			        
-		    clrf portc
+		    clrf portc ; Clears the port after every successful loop
             
-            loop1:  DECFSZ count,f
-			        goto loop1
+            loop1:  DECFSZ count,f ; Decrements count and stores the value in f
+			        goto loop1 ; If the value is not 0 it will continue the loop
 			        NOP
 			loop2:  DECFSZ count,f
 			        goto loop2
@@ -55,9 +55,10 @@ void main(void)
 			        goto loop8
 			        NOP
             
-			movlw 0b00000001
-			movwf portc
+			movlw 0b00000001 ; Sets the port output 1 to high
+			movwf portc ; Sends the value to the output
 			
+			; This loop keeps the led on for a bit longer
 		    loop0:  DECFSZ count,f
 			        goto loop0
 			        NOP

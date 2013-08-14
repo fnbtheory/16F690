@@ -1,44 +1,44 @@
 
-ROM used: 75 (2%)
-          75 (2%) including unused fragments
+ROM used: 69 (2%)
+          69 (2%) including unused fragments
 
           0 Average locations per line
-          15 Average locations per statement
+          14 Average locations per statement
 
-RAM used: 14 (6%) at main() level
-          14 (6%) worst case
+RAM used: 8 (3%) at main() level
+          8 (3%) worst case
 
 Stack used: 0 worst case (out of 8 total available)
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-   75     5 100  main.c
-  379     0   0  C:\PROGRA~2\PICC\devices\16F690.h
-   16     0   0  main.h
+   75     5 100  E:\Digital Systems 3\Projects\16F690\Tutorial 1\main.c
+  375     0   0  C:\PROGRA~1\PICC\devices\16F690.h
+   10     0   0  E:\Digital Systems 3\Projects\16F690\Tutorial 1\main.h
 ----- -----
-  470     5 Total
+  460     5 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
-0     71  95   0   419  4.1  main
+0     65  94   0   419  4.1  main
 
 Program metrics:
     Functions               1
     Statements              5
-    Comments                86
+    Comments                84
     Volume (V)              419
     Difficilty (D)          4.1
     Effort to implement (E) 1716
     Time to implement (T)   2 minutes
     Est Delivered Bugs (B)  0
     Cyclomatic Complexity   1
-    Maintainability (MI)    162
+    Maintainability (MI)    163
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00003     4  0  
-00004-007FF    71  1973  
-00800-00EFF     0  1792  
+00004-007FF    65  1979  
+00800-00FFF     0  2048  
 
 
 

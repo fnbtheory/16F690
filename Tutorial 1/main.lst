@@ -1,18 +1,18 @@
-CCS PCM C Compiler, Version 4.057, 4010               12-Aug-13 19:53
+CCS PCM C Compiler, Version 4.038, 15176               14-Aug-13 08:36
 
                Filename: main.lst
 
-               ROM used: 75 words (2%)
-                         Largest free fragment is 1973
-               RAM used: 14 (6%) at main() level
-                         14 (6%) worst case
+               ROM used: 69 words (2%)
+                         Largest free fragment is 2048
+               RAM used: 8 (3%) at main() level
+                         8 (3%) worst case
                Stack:    0 locations
 
 *
-0000:  NOP
-0001:  MOVLW  00
-0002:  MOVWF  0A
-0003:  GOTO   004
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   004
+0003:  NOP
 .................... #include <16F690.h> 
 .................... //////// Standard Header file for the PIC16F690 device //////////////// 
 .................... #device PIC16F690 
@@ -39,21 +39,9 @@ CCS PCM C Compiler, Version 4.057, 4010               12-Aug-13 19:53
 ....................  
 .................... int count = 0; 
 *
-001F:  CLRF   25
-.................... int count1 = 0; 
-0020:  CLRF   26
-.................... int count2 = 0; 
-0021:  CLRF   27
-.................... int count3 = 0; 
-0022:  CLRF   28
-.................... int count4 = 0; 
-0023:  CLRF   29
-.................... int count5 = 0; 
-0024:  CLRF   2A
-.................... int count6 = 0; 
-0025:  CLRF   2B
+001E:  CLRF   25
 .................... int f = 0; 
-0026:  CLRF   2C
+001F:  CLRF   26
 ....................  
 .................... void footer(); 
 ....................  
@@ -70,108 +58,108 @@ CCS PCM C Compiler, Version 4.057, 4010               12-Aug-13 19:53
 0008:  MOVLW  01
 0009:  BSF    03.5
 000A:  MOVWF  0F
-000B:  MOVF   0F,W
-000C:  BCF    03.5
-000D:  BSF    03.6
-000E:  BCF    1F.0
-000F:  BCF    1F.1
-0010:  BCF    1F.2
-0011:  BCF    1F.3
-0012:  BCF    03.6
-0013:  BCF    1F.6
-0014:  MOVLW  00
-0015:  BSF    03.6
-0016:  MOVWF  1E
-0017:  CLRF   19
-0018:  CLRF   1A
-0019:  BSF    03.5
-001A:  CLRF   1E
-001B:  BCF    03.5
-001C:  CLRF   1B
-001D:  BCF    03.6
-001E:  BCF    0D.5
+000B:  BCF    03.5
+000C:  BSF    03.6
+000D:  BCF    1F.0
+000E:  BCF    1F.1
+000F:  BCF    1F.2
+0010:  BCF    1F.3
+0011:  BCF    03.6
+0012:  BCF    1F.6
+0013:  MOVLW  00
+0014:  BSF    03.6
+0015:  MOVWF  1E
+0016:  CLRF   19
+0017:  CLRF   1A
+0018:  BSF    03.5
+0019:  CLRF   1E
+001A:  BCF    03.5
+001B:  CLRF   1B
+001C:  BCF    03.6
+001D:  BCF    0D.5
 .................... 	#asm 
 .................... 		bsf status, rp0 
 *
-0027:  BSF    03.5
+0020:  BSF    03.5
 .................... 		clrf portc 
-0028:  CLRF   07
+0021:  CLRF   07
 .................... 		bcf status, rp0 
-0029:  BCF    03.5
+0022:  BCF    03.5
 .................... 	#endasm 
 .................... 	while(true) 
 .................... 	{ 
-.................... 		count = 64000; 
-002A:  CLRF   25
+.................... 		count = 255; 
+0023:  MOVLW  FF
+0024:  MOVWF  25
 .................... 		#asm 
 .................... 			         
 .................... 		    clrf portc 
-002B:  CLRF   07
+0025:  CLRF   07
 ....................              
 ....................             loop1:  DECFSZ count,f 
-002C:  DECFSZ 25,F
+0026:  DECFSZ 25,F
 .................... 			        goto loop1 
+0027:  GOTO   026
+.................... 			        NOP 
+0028:  NOP
+.................... 			loop2:  DECFSZ count,f 
+0029:  DECFSZ 25,F
+.................... 			        goto loop2 
+002A:  GOTO   029
+.................... 			        NOP 
+002B:  NOP
+.................... 			loop3:  DECFSZ count,f 
+002C:  DECFSZ 25,F
+.................... 			        goto loop3 
 002D:  GOTO   02C
 .................... 			        NOP 
 002E:  NOP
-.................... 			loop2:  DECFSZ count,f 
+.................... 			loop4:  DECFSZ count,f 
 002F:  DECFSZ 25,F
-.................... 			        goto loop2 
+.................... 			        goto loop4 
 0030:  GOTO   02F
 .................... 			        NOP 
 0031:  NOP
-.................... 			loop3:  DECFSZ count,f 
+.................... 			loop5:  DECFSZ count,f 
 0032:  DECFSZ 25,F
-.................... 			        goto loop3 
+.................... 			        goto loop5 
 0033:  GOTO   032
 .................... 			        NOP 
 0034:  NOP
-.................... 			loop4:  DECFSZ count,f 
+.................... 			loop6:  DECFSZ count,f 
 0035:  DECFSZ 25,F
-.................... 			        goto loop4 
+.................... 			        goto loop6 
 0036:  GOTO   035
 .................... 			        NOP 
 0037:  NOP
-.................... 			loop5:  DECFSZ count,f 
+.................... 			loop7:  DECFSZ count,f 
 0038:  DECFSZ 25,F
-.................... 			        goto loop5 
+.................... 			        goto loop7 
 0039:  GOTO   038
 .................... 			        NOP 
 003A:  NOP
-.................... 			loop6:  DECFSZ count,f 
+.................... 			loop8:  DECFSZ count,f 
 003B:  DECFSZ 25,F
-.................... 			        goto loop6 
+.................... 			        goto loop8 
 003C:  GOTO   03B
 .................... 			        NOP 
 003D:  NOP
-.................... 			loop7:  DECFSZ count,f 
-003E:  DECFSZ 25,F
-.................... 			        goto loop7 
-003F:  GOTO   03E
-.................... 			        NOP 
-0040:  NOP
-.................... 			loop8:  DECFSZ count,f 
-0041:  DECFSZ 25,F
-.................... 			        goto loop8 
-0042:  GOTO   041
-.................... 			        NOP 
-0043:  NOP
 ....................              
 .................... 			movlw 0b00000001 
-0044:  MOVLW  01
+003E:  MOVLW  01
 .................... 			movwf portc 
-0045:  MOVWF  07
+003F:  MOVWF  07
 .................... 			 
 .................... 		    loop0:  DECFSZ count,f 
-0046:  DECFSZ 25,F
+0040:  DECFSZ 25,F
 .................... 			        goto loop0 
-0047:  GOTO   046
+0041:  GOTO   040
 .................... 			        NOP 
-0048:  NOP
+0042:  NOP
 ....................  
 .................... 		#endasm 
 .................... 	} 
-0049:  GOTO   02A
+0043:  GOTO   023
 .................... } 
 ....................  
 .................... //              /)/) 
@@ -180,7 +168,7 @@ CCS PCM C Compiler, Version 4.057, 4010               12-Aug-13 19:53
 .................... //            /#/ 
 .................... //           /#/	Tighty Whities (Pty) Ltd. 
 .................... //          /#/		(c) 2013. For Ze Party. 
-004A:  GOTO   04A
+0044:  SLEEP
 
 Configuration Fuses:
    Word  1: 30D4   INTRC_IO NOPROTECT NOBROWNOUT NOMCLR NOCPD NOWDT NOPUT NOIESO NOFCMEN

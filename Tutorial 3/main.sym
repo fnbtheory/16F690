@@ -1,6 +1,6 @@
 004-005 @READ_PROGRAM_MEMORY8.P1
-015-016 CCP_1
 015     CCP_1_LOW
+015-016 CCP_1
 016     CCP_1_HIGH
 020     @SCRATCH
 021     @SCRATCH
@@ -8,19 +8,24 @@
 022     @SCRATCH
 023     @SCRATCH
 024     @SCRATCH
-026     main.@SCRATCH1
-027     @delay_ms1.P1
+025     count
+026     @delay_ms1.P1
 10D-10E @READ_PROGRAM_MEMORY8.P1
 11B.6   C2OUT
 11B.7   C1OUT
 
 ROM Allocation:
-0004  @delay_ms1
-0015  main
-0015  @cinit
+0030  @delay_ms1
+005D  main
+0004  button
+0029  reset
+0052  up_count
+0047  down_count
+0041  display
+005D  @cinit
 
 Project Directory:
-    C:\Users\user\Documents\Flash Drive\New\Digital Systems 3\Projects\16F690\Tutorial 2\
+    C:\Users\user\Documents\Flash Drive\New\Digital Systems 3\Projects\16F690\Tutorial 3\
 
 Project Files:
     main.c

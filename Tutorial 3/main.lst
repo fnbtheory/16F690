@@ -1,0 +1,282 @@
+CCS PCM C Compiler, Version 4.057, 4010               21-Aug-13 12:21
+
+               Filename: main.lst
+
+               ROM used: 151 words (4%)
+                         Largest free fragment is 1897
+               RAM used: 7 (3%) at main() level
+                         8 (3%) worst case
+               Stack:    2 locations
+
+*
+0000:  NOP
+0001:  MOVLW  00
+0002:  MOVWF  0A
+0003:  GOTO   05D
+.................... #include <16F690.h> 
+.................... //////// Standard Header file for the PIC16F690 device //////////////// 
+.................... #device PIC16F690 
+.................... #list 
+....................  
+.................... #device adc=8 
+....................  
+.................... #FUSES NOWDT                    //No Watch Dog Timer 
+.................... #FUSES HS 
+.................... #FUSES INTRC_IO                 //Low power osc < 200 khz  LP 
+.................... #FUSES NOPROTECT                //Code not protected from reading 
+.................... #FUSES NOBROWNOUT               //No brownout reset 
+.................... #FUSES NOMCLR                   //Master Clear pin used for I/O 
+.................... #FUSES NOCPD                    //No EE protection 
+.................... #FUSES NOPUT                    //No Power Up Timer 
+.................... #FUSES NOIESO                   //Internal External Switch Over mode disabled 
+.................... #FUSES NOFCMEN                  //Fail-safe clock monitor disabled 
+....................  
+.................... #include "main.h" 
+.................... #define C0 PIN_C0 
+.................... #define C1 PIN_C1 
+.................... #define C2 PIN_C2 
+.................... #define C3 PIN_C3 
+.................... #define C6 PIN_C6 
+.................... #define C7 PIN_C7 
+....................  
+.................... int count = 0; 
+*
+0078:  CLRF   25
+....................  
+.................... int button(); 
+.................... void up_count(); 
+.................... void down_count(); 
+.................... void display(); 
+.................... void reset(); 
+....................  
+....................  
+.................... #use delay(clock=32000) 
+*
+0030:  MOVLW  02
+0031:  SUBWF  26,F
+0032:  BTFSS  03.0
+0033:  GOTO   040
+0034:  MOVLW  26
+0035:  MOVWF  04
+0036:  BCF    03.7
+0037:  MOVF   00,W
+0038:  BTFSC  03.2
+0039:  GOTO   040
+003A:  GOTO   03E
+003B:  GOTO   03C
+003C:  GOTO   03D
+003D:  NOP
+003E:  DECFSZ 00,F
+003F:  GOTO   03B
+0040:  RETLW  00
+....................  
+.................... void main(void) 
+.................... { 
+*
+005D:  CLRF   04
+005E:  BCF    03.7
+005F:  MOVLW  1F
+0060:  ANDWF  03,F
+0061:  MOVLW  01
+0062:  BSF    03.5
+0063:  MOVWF  0F
+0064:  MOVF   0F,W
+0065:  BCF    03.5
+0066:  BSF    03.6
+0067:  BCF    1F.0
+0068:  BCF    1F.1
+0069:  BCF    1F.2
+006A:  BCF    1F.3
+006B:  BCF    03.6
+006C:  BCF    1F.6
+006D:  MOVLW  00
+006E:  BSF    03.6
+006F:  MOVWF  1E
+0070:  CLRF   19
+0071:  CLRF   1A
+0072:  BSF    03.5
+0073:  CLRF   1E
+0074:  BCF    03.5
+0075:  CLRF   1B
+0076:  BCF    03.6
+0077:  BCF    0D.5
+.................... 	SET_TRIS_C(192); 
+*
+0079:  MOVLW  C0
+007A:  BSF    03.5
+007B:  MOVWF  07
+.................... 	while(true) 
+.................... 	{ 
+....................     	switch(button()) 
+....................     	{ 
+007C:  BCF    03.5
+007D:  GOTO   004
+007E:  MOVF   21,W
+007F:  XORLW  01
+0080:  BTFSC  03.2
+0081:  GOTO   089
+0082:  XORLW  03
+0083:  BTFSC  03.2
+0084:  GOTO   08A
+0085:  XORLW  01
+0086:  BTFSC  03.2
+0087:  GOTO   08B
+0088:  GOTO   08C
+....................         	case 1: reset(); break; 
+0089:  GOTO   029
+....................         	case 2: down_count(); break; 
+008A:  GOTO   047
+....................         	case 3: up_count(); break; 
+008B:  GOTO   052
+....................         	default: 
+....................         	    delay_ms(100); 
+008C:  MOVLW  64
+008D:  MOVWF  26
+008E:  CALL   030
+....................                 output_c(count); 
+008F:  BSF    03.5
+0090:  CLRF   07
+0091:  BCF    03.5
+0092:  MOVF   25,W
+0093:  MOVWF  07
+....................                 break; 
+0094:  GOTO   095
+....................         }            
+.................... 	} 
+0095:  GOTO   07D
+.................... } 
+....................  
+.................... int button() 
+.................... { 
+0096:  GOTO   096
+....................     if(!input(C7) && !input(C6)) 
+*
+0004:  BSF    03.5
+0005:  BSF    07.7
+0006:  BCF    03.5
+0007:  BTFSC  07.7
+0008:  GOTO   012
+0009:  BSF    03.5
+000A:  BSF    07.6
+000B:  BCF    03.5
+000C:  BTFSC  07.6
+000D:  GOTO   012
+....................     { 
+....................         return 1; 
+000E:  MOVLW  01
+000F:  MOVWF  21
+0010:  GOTO   027
+....................     } 
+....................     else if(!input(C6)) 
+0011:  GOTO   027
+0012:  BSF    03.5
+0013:  BSF    07.6
+0014:  BCF    03.5
+0015:  BTFSC  07.6
+0016:  GOTO   01B
+....................     { 
+....................         return 2; 
+0017:  MOVLW  02
+0018:  MOVWF  21
+0019:  GOTO   027
+....................     } 
+....................     else if(!input(C7)) 
+001A:  GOTO   027
+001B:  BSF    03.5
+001C:  BSF    07.7
+001D:  BCF    03.5
+001E:  BTFSC  07.7
+001F:  GOTO   024
+....................     { 
+....................         return 3; 
+0020:  MOVLW  03
+0021:  MOVWF  21
+0022:  GOTO   027
+....................     } 
+....................     else 
+0023:  GOTO   027
+....................         return 0; 
+0024:  MOVLW  00
+0025:  MOVWF  21
+0026:  GOTO   027
+.................... } 
+0027:  BCF    0A.3
+0028:  GOTO   07E (RETURN)
+....................  
+.................... void reset() 
+.................... { 
+....................     output_c(16); 
+0029:  BSF    03.5
+002A:  CLRF   07
+002B:  MOVLW  10
+002C:  BCF    03.5
+002D:  MOVWF  07
+.................... } 
+002E:  BCF    0A.3
+002F:  GOTO   095 (RETURN)
+....................  
+.................... void up_count() 
+.................... { 
+....................     count++; 
+*
+0052:  INCF   25,F
+....................     if (count <= 15) 
+0053:  MOVF   25,W
+0054:  SUBLW  0F
+0055:  BTFSS  03.0
+0056:  GOTO   05B
+....................     { 
+....................         delay_ms(200); 
+0057:  MOVLW  C8
+0058:  MOVWF  26
+0059:  CALL   030
+....................         display(); 
+005A:  CALL   041
+....................     } 
+.................... }        
+005B:  BCF    0A.3
+005C:  GOTO   095 (RETURN)
+....................  
+.................... void down_count() 
+.................... { 
+....................     count--; 
+*
+0047:  DECF   25,F
+....................     if (count <= 15) 
+0048:  MOVF   25,W
+0049:  SUBLW  0F
+004A:  BTFSS  03.0
+004B:  GOTO   050
+....................     { 
+....................         delay_ms(200); 
+004C:  MOVLW  C8
+004D:  MOVWF  26
+004E:  CALL   030
+....................         display(); 
+004F:  CALL   041
+....................     } 
+.................... } 
+0050:  BCF    0A.3
+0051:  GOTO   095 (RETURN)
+....................  
+.................... void display() 
+.................... { 
+....................     output_c(count); 
+*
+0041:  BSF    03.5
+0042:  CLRF   07
+0043:  BCF    03.5
+0044:  MOVF   25,W
+0045:  MOVWF  07
+.................... }     
+0046:  RETLW  00
+....................  
+.................... //              /)/) 
+.................... //             ( 0 0) 
+.................... //             /'-._) 
+.................... //            /#/ 
+.................... //           /#/	Tighty Whities (Pty) Ltd. 
+.................... //          /#/		(c) 2013. For Ze Party. 
+
+Configuration Fuses:
+   Word  1: 30D4   INTRC_IO NOPROTECT NOBROWNOUT NOMCLR NOCPD NOWDT NOPUT NOIESO NOFCMEN

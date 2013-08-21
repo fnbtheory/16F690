@@ -1,18 +1,18 @@
-CCS PCM C Compiler, Version 4.038, 15176               14-Aug-13 09:35
+CCS PCM C Compiler, Version 4.057, 4010               21-Aug-13 12:28
 
                Filename: main.lst
 
-               ROM used: 72 words (2%)
-                         Largest free fragment is 2048
+               ROM used: 73 words (2%)
+                         Largest free fragment is 1975
                RAM used: 7 (3%) at main() level
                          8 (3%) worst case
                Stack:    1 locations
 
 *
-0000:  MOVLW  00
-0001:  MOVWF  0A
-0002:  GOTO   015
-0003:  NOP
+0000:  NOP
+0001:  MOVLW  00
+0002:  MOVWF  0A
+0003:  GOTO   015
 .................... #include <16F690.h> 
 .................... //////// Standard Header file for the PIC16F690 device //////////////// 
 .................... #device PIC16F690 
@@ -64,57 +64,58 @@ CCS PCM C Compiler, Version 4.038, 15176               14-Aug-13 09:35
 0019:  MOVLW  01
 001A:  BSF    03.5
 001B:  MOVWF  0F
-001C:  BCF    03.5
-001D:  BSF    03.6
-001E:  BCF    1F.0
-001F:  BCF    1F.1
-0020:  BCF    1F.2
-0021:  BCF    1F.3
-0022:  BCF    03.6
-0023:  BCF    1F.6
-0024:  MOVLW  00
-0025:  BSF    03.6
-0026:  MOVWF  1E
-0027:  CLRF   19
-0028:  CLRF   1A
-0029:  BSF    03.5
-002A:  CLRF   1E
-002B:  BCF    03.5
-002C:  CLRF   1B
-002D:  BCF    03.6
-002E:  BCF    0D.5
+001C:  MOVF   0F,W
+001D:  BCF    03.5
+001E:  BSF    03.6
+001F:  BCF    1F.0
+0020:  BCF    1F.1
+0021:  BCF    1F.2
+0022:  BCF    1F.3
+0023:  BCF    03.6
+0024:  BCF    1F.6
+0025:  MOVLW  00
+0026:  BSF    03.6
+0027:  MOVWF  1E
+0028:  CLRF   19
+0029:  CLRF   1A
+002A:  BSF    03.5
+002B:  CLRF   1E
+002C:  BCF    03.5
+002D:  CLRF   1B
+002E:  BCF    03.6
+002F:  BCF    0D.5
 .................... 	SET_TRIS_C(0); 
-002F:  MOVLW  00
-0030:  BSF    03.5
-0031:  MOVWF  07
+0030:  MOVLW  00
+0031:  BSF    03.5
+0032:  MOVWF  07
 .................... 	while(true) 
 .................... 	{ 
 .................... 		delay_ms(100); // Keep LED on for 100ms 
-0032:  MOVLW  64
-0033:  BCF    03.5
-0034:  MOVWF  27
-0035:  CALL   004
+0033:  MOVLW  64
+0034:  BCF    03.5
+0035:  MOVWF  27
+0036:  CALL   004
 .................... 		OUTPUT_LOW(PIN_C0); // Switch off the LED 
-0036:  BSF    03.5
-0037:  BCF    07.0
-0038:  BCF    03.5
-0039:  BCF    07.0
+0037:  BSF    03.5
+0038:  BCF    07.0
+0039:  BCF    03.5
+003A:  BCF    07.0
 .................... 		delay_ms(900); // Wait for 900ms 
-003A:  MOVLW  04
-003B:  MOVWF  26
-003C:  MOVLW  E1
-003D:  MOVWF  27
-003E:  CALL   004
-003F:  DECFSZ 26,F
-0040:  GOTO   03C
+003B:  MOVLW  04
+003C:  MOVWF  26
+003D:  MOVLW  E1
+003E:  MOVWF  27
+003F:  CALL   004
+0040:  DECFSZ 26,F
+0041:  GOTO   03D
 .................... 		OUTPUT_HIGH(PIN_C0); // Switch on LED 
-0041:  BSF    03.5
-0042:  BCF    07.0
-0043:  BCF    03.5
-0044:  BSF    07.0
+0042:  BSF    03.5
+0043:  BCF    07.0
+0044:  BCF    03.5
+0045:  BSF    07.0
 .................... 	} 
-0045:  BSF    03.5
-0046:  GOTO   032
+0046:  BSF    03.5
+0047:  GOTO   033
 .................... } 
 ....................  
 .................... //              /)/) 
@@ -123,7 +124,7 @@ CCS PCM C Compiler, Version 4.038, 15176               14-Aug-13 09:35
 .................... //            /#/ 
 .................... //           /#/	Tighty Whities (Pty) Ltd. 
 .................... //          /#/		(c) 2013. For Ze Party. 
-0047:  SLEEP
+0048:  GOTO   048
 
 Configuration Fuses:
    Word  1: 30D4   INTRC_IO NOPROTECT NOBROWNOUT NOMCLR NOCPD NOWDT NOPUT NOIESO NOFCMEN

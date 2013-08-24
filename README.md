@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Digital Systems 3
 Introduction into microcontrollers
 

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 004-005 @READ_PROGRAM_MEMORY8.P1
 015     CCP_1_LOW
 015-016 CCP_1
@@ -58,64 +57,3 @@ Output Files:
     Project:     main.PJT
     Call Tree:   main.tre
     Statistics:  main.sta
-=======
-004-005 @READ_PROGRAM_MEMORY8.P1
-015     CCP_1_LOW
-015-016 CCP_1
-016     CCP_1_HIGH
-020     @SCRATCH
-021     @SCRATCH
-021     _RETURN_
-022     @SCRATCH
-023     @SCRATCH
-024     @SCRATCH
-025     count
-026     @delay_ms1.P1
-10D-10E @READ_PROGRAM_MEMORY8.P1
-11B.6   C2OUT
-11B.7   C1OUT
-
-ROM Allocation:
-0030  @delay_ms1
-005D  main
-0004  button
-0029  reset
-0052  up_count
-0047  down_count
-0041  display
-005D  @cinit
-
-Project Directory:
-    C:\Users\user\Documents\Flash Drive\New\Digital Systems 3\Projects\16F690\Tutorial 3\
-
-Project Files:
-    main.c
-    ..\..\..\..\..\..\..\..\..\PROGRA~2\PICC\devices\16F690.h
-    main.h
-
-Units:
-    main.c (main)
-
-Compiler Settings:
-    Processor:      PIC16F690
-    Pointer Size:   16
-    ADC Range:      0-255
-    Opt Level:      9
-    Short,Int,Long: UNSIGNED: 1,8,16
-    Float,Double:   32,32
-    ICD Provisions: Yes
-    Predefined symbols:
-       #define __DEBUG 1
-       #define __16F690 TRUE
-
-Output Files:
-    Errors:      main.err
-    Ext Symbols: main.esym
-    INHX8:       main.hex
-    Symbols:     main.sym
-    List:        main.lst
-    Debug/COFF:  main.cof
-    Project:     main.PJT
-    Call Tree:   main.tre
-    Statistics:  main.sta
->>>>>>> 6fd66c6cc267f8b1d861c4e19ebd960bad0c6b64

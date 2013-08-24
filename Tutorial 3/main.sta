@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 ROM used: 114 (3%)
           114 (3%) including unused fragments
@@ -32,14 +31,14 @@ Page ROM  %  RAM   Vol Diff  Functions:
 Program metrics:
     Functions               6
     Statements              28
-    Comments                86
+    Comments                108
     Volume (V)              681
     Difficilty (D)          10.7
     Effort to implement (E) 7305
     Time to implement (T)   7 minutes
     Est Delivered Bugs (B)  0
     Cyclomatic Complexity   5
-    Maintainability (MI)    101
+    Maintainability (MI)    136
 
  Segment     Used  Free
 -----------  ----  ----
@@ -49,55 +48,3 @@ Program metrics:
 
 
 
-=======
-
-ROM used: 151 (4%)
-          151 (4%) including unused fragments
-
-          0 Average locations per line
-          4 Average locations per statement
-
-RAM used: 7 (3%) at main() level
-          8 (3%) worst case
-
-Stack used: 2 worst case (out of 8 total available)
-
-Lines Stmts  %   Files
------ ----- ---  -----
-   91    35 100  main.c
-  379     0   0  ..\..\..\..\..\..\..\..\..\PROGRA~2\PICC\devices\16F690.h
-   15     0   0  main.h
------ -----
-  485    35 Total
-
-Page ROM  %  RAM   Vol Diff  Functions:
----- --- --- ---   --- ----  ----------
-0     17  11   1             @delay_ms1
-0     58  38   0   244  4.0  main
-0     37  25   0   192  3.4  button
-0      7   5   0    17  0.8  reset
-0     11   7   0    69  2.3  up_count
-0     11   7   0    69  2.3  down_count
-0      6   4   0    16  1.0  display
-
-Program metrics:
-    Functions               6
-    Statements              35
-    Comments                86
-    Volume (V)              928
-    Difficilty (D)          13.7
-    Effort to implement (E) 12701
-    Time to implement (T)   12 minutes
-    Est Delivered Bugs (B)  0
-    Cyclomatic Complexity   9
-    Maintainability (MI)    96
-
- Segment     Used  Free
------------  ----  ----
-00000-00003     4  0  
-00004-007FF   147  1897  
-00800-00EFF     0  1792  
-
-
-
->>>>>>> 6fd66c6cc267f8b1d861c4e19ebd960bad0c6b64

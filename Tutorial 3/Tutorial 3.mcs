@@ -1,91 +1,23 @@
-<<<<<<< HEAD
-[Header]
-MagicCookie={0b13fe8c-dfe0-40eb-8900-6712719559a7}
-Version=1.0
-[TOOL_LOC_STAMPS]
-tool_loc{0C155615-B197-4A4B-AEB6-343BB3F41A35}=C:\Program Files (x86)\PICC\Ccsc.exe
-=======
 [Header]
 MagicCookie={0b13fe8c-dfe0-40eb-8900-6712719559a7}
 Version=1.0
 [File000]
-Location=C:\Users\user\Documents\Flash Drive\New\Digital Systems 3\Projects\16F690\Tutorial 3\main.ESYM
+Location=G:\Digital Systems 3\Projects\16F690\Tutorial 3\main.ESYM
 Folder=Intermediary
-DeviceName=
-LanguageToolSuiteID=
-LanguageToolID=
-LanguageToolLocation=
-PPAD=
-SOLK=
-SuiteArgsString=
-ToolArgsString=
-TraceCmdString=
-DebugOptions=
 [File001]
-Location=C:\Users\user\Documents\Flash Drive\New\Digital Systems 3\Projects\16F690\Tutorial 3\main.o
+Location=G:\Digital Systems 3\Projects\16F690\Tutorial 3\main.o
 Folder=Intermediary
-DeviceName=
-LanguageToolSuiteID=
-LanguageToolID=
-LanguageToolLocation=
-PPAD=
-SOLK=
-SuiteArgsString=
-ToolArgsString=
-TraceCmdString=
-DebugOptions=
 [File002]
-Location=C:\Users\user\Documents\Flash Drive\New\Digital Systems 3\Projects\16F690\Tutorial 3\main.HEX
+Location=G:\Digital Systems 3\Projects\16F690\Tutorial 3\main.HEX
 Folder=Output
-DeviceName=
-LanguageToolSuiteID=
-LanguageToolID=
-LanguageToolLocation=
-PPAD=
-SOLK=
-SuiteArgsString=
-ToolArgsString=
-TraceCmdString=
-DebugOptions=
 [File003]
-Location=C:\Users\user\Documents\Flash Drive\New\Digital Systems 3\Projects\16F690\Tutorial 3\main.LST
+Location=G:\Digital Systems 3\Projects\16F690\Tutorial 3\main.LST
 Folder=Output
-DeviceName=
-LanguageToolSuiteID=
-LanguageToolID=
-LanguageToolLocation=
-PPAD=
-SOLK=
-SuiteArgsString=
-ToolArgsString=
-TraceCmdString=
-DebugOptions=
 [File004]
-Location=C:\Users\user\Documents\Flash Drive\New\Digital Systems 3\Projects\16F690\Tutorial 3\main.ERR
+Location=G:\Digital Systems 3\Projects\16F690\Tutorial 3\main.ERR
 Folder=Output
-DeviceName=
-LanguageToolSuiteID=
-LanguageToolID=
-LanguageToolLocation=
-PPAD=
-SOLK=
-SuiteArgsString=
-ToolArgsString=
-TraceCmdString=
-DebugOptions=
 [File005]
-Location=C:\Users\user\Documents\Flash Drive\New\Digital Systems 3\Projects\16F690\Tutorial 3\main.COF
+Location=G:\Digital Systems 3\Projects\16F690\Tutorial 3\main.COF
 Folder=Output
-DeviceName=
-LanguageToolSuiteID=
-LanguageToolID=
-LanguageToolLocation=
-PPAD=
-SOLK=
-SuiteArgsString=
-ToolArgsString=
-TraceCmdString=
-DebugOptions=
 [TOOL_LOC_STAMPS]
 tool_loc{0C155615-B197-4A4B-AEB6-343BB3F41A35}=C:\Program Files (x86)\PICC\Ccsc.exe
->>>>>>> 6fd66c6cc267f8b1d861c4e19ebd960bad0c6b64

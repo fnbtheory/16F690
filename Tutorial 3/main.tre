@@ -1,3 +1,20 @@
+<<<<<<< HEAD
+ÀÄmain
+   ÀÄmain  0/34  Ram=0
+      ÃÄ??0??
+      ÀÄbutton  0/50  Ram=0
+         ÃÄreset  (Inline)  Ram=0
+         ÃÄdown_count  (Inline)  Ram=0
+         ³  ÃÄ@delay_ms1  0/17  Ram=1
+         ³  ÀÄdisplay  0/9  Ram=0
+         ³     ÀÄ@delay_ms1  0/17  Ram=1
+         ÃÄup_count  (Inline)  Ram=0
+         ³  ÃÄ@delay_ms1  0/17  Ram=1
+         ³  ÀÄdisplay  0/9  Ram=0
+         ³     ÀÄ@delay_ms1  0/17  Ram=1
+         ÀÄdisplay  0/9  Ram=0
+            ÀÄ@delay_ms1  0/17  Ram=1
+=======
 ÀÄmain
    ÀÄmain  0/58  Ram=0
       ÃÄ??0??
@@ -10,3 +27,4 @@
       ³  ÃÄ@delay_ms1  0/17  Ram=1
       ³  ÀÄdisplay  0/6  Ram=0
       ÀÄ@delay_ms1  0/17  Ram=1
+>>>>>>> 6fd66c6cc267f8b1d861c4e19ebd960bad0c6b64

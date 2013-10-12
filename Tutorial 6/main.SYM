@@ -1,0 +1,54 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+015     CCP_1_LOW
+015-016 CCP_1
+016     CCP_1_HIGH
+020     @SCRATCH
+021     @SCRATCH
+021     _RETURN_
+022     @SCRATCH
+023     @SCRATCH
+024     @SCRATCH
+025-02E segment
+02F     input
+030     display.input
+031     display.temp
+032     @DIV88.P1
+032     display.@SCRATCH
+033     @DIV88.P1
+034     @DIV88.@SCRATCH
+10D-10E @READ_PROGRAM_MEMORY8.P1
+11B.6   C2OUT
+11B.7   C1OUT
+
+0051  main
+0022  run
+002A  display
+002F  @DIV88
+0004  setup
+0051  @cinit
+
+Project Files:
+    H:\Digital Systems 3\Tutorial 6\Tutorial 6\main.c
+    C:\PROGRA~1\PICC\devices\16F690.h
+    H:\Digital Systems 3\Tutorial 6\Tutorial 6\main.h
+
+Units:
+    main.c (main)
+
+Compiler Settings:
+    Processor:      PIC16F690
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      0
+    Short,Int,Long: 1,8,16
+
+Output Files:
+    Errors:      H:\Digital Systems 3\Tutorial 6\Tutorial 6\main.err
+    Ext Symbols: H:\Digital Systems 3\Tutorial 6\Tutorial 6\main.esym
+    INHX8:\       main.hex
+    Symbols:\     main.sym
+    List:\        main.lst
+    Debug/COFF:\  main.cof
+    Project:     H:\Digital Systems 3\Tutorial 6\Tutorial 6\main.PJT
+    Call Tree:   H:\Digital Systems 3\Tutorial 6\Tutorial 6\main.tre
+    Statistics:  H:\Digital Systems 3\Tutorial 6\Tutorial 6\main.sta

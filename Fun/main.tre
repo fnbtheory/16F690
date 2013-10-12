@@ -1,0 +1,6 @@
+青main
+   青main  0/66  Ram=0
+      団??0??
+      青run  0/49  Ram=1
+         団display  (Inline)  Ram=2
+         青@delay_ms1  (Inline)  Ram=1

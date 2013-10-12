@@ -1,0 +1,210 @@
+CCS PCM C Compiler, Version 4.057, 4010               04-Oct-13 18:33
+
+               Filename: main.lst
+
+               ROM used: 119 words (3%)
+                         Largest free fragment is 1929
+               RAM used: 25 (10%) at main() level
+                         28 (12%) worst case
+               Stack:    1 locations
+
+*
+0000:  NOP
+0001:  MOVLW  00
+0002:  MOVWF  0A
+0003:  GOTO   035
+.................... // Author: Kyluke McDougall 
+....................  
+.................... #include <16F690.h> 
+.................... //////// Standard Header file for the PIC16F690 device //////////////// 
+.................... #device PIC16F690 
+.................... #list 
+....................  
+.................... #device adc=8 
+....................  
+.................... #FUSES NOWDT                    //No Watch Dog Timer 
+.................... #FUSES HS 
+.................... #FUSES INTRC_IO                 //Low power osc < 200 khz  LP 
+.................... #FUSES NOPROTECT                //Code not protected from reading 
+.................... #FUSES NOBROWNOUT               //No brownout reset 
+.................... #FUSES NOMCLR                   //Master Clear pin used for I/O 
+.................... #FUSES NOCPD                    //No EE protection 
+.................... #FUSES NOPUT                    //No Power Up Timer 
+.................... #FUSES NOIESO                   //Internal External Switch Over mode disabled 
+.................... #FUSES NOFCMEN                  //Fail-safe clock monitor disabled 
+....................  
+.................... #include "main.h" 
+.................... #define A0 PIN_A0 
+....................  
+.................... #define C0 PIN_C0 
+.................... #define C1 PIN_C1 
+.................... #define C2 PIN_C2 
+.................... #define C3 PIN_C3 
+....................  
+.................... int round_robin[7] = {126,125,123,119,111,95,63}; 
+*
+0050:  MOVLW  7E
+0051:  MOVWF  25
+0052:  MOVLW  7D
+0053:  MOVWF  26
+0054:  MOVLW  7B
+0055:  MOVWF  27
+0056:  MOVLW  77
+0057:  MOVWF  28
+0058:  MOVLW  6F
+0059:  MOVWF  29
+005A:  MOVLW  5F
+005B:  MOVWF  2A
+005C:  MOVLW  3F
+005D:  MOVWF  2B
+.................... int segment_numbers[10] = {64,121,36,48,25,18,2,120,0,16}; 
+005E:  MOVLW  40
+005F:  MOVWF  2C
+0060:  MOVLW  79
+0061:  MOVWF  2D
+0062:  MOVLW  24
+0063:  MOVWF  2E
+0064:  MOVLW  30
+0065:  MOVWF  2F
+0066:  MOVLW  19
+0067:  MOVWF  30
+0068:  MOVLW  12
+0069:  MOVWF  31
+006A:  MOVLW  02
+006B:  MOVWF  32
+006C:  MOVLW  78
+006D:  MOVWF  33
+006E:  CLRF   34
+006F:  MOVLW  10
+0070:  MOVWF  35
+....................  
+.................... int h = 6; 
+0071:  MOVLW  06
+0072:  MOVWF  36
+.................... int i = 9; 
+0073:  MOVLW  09
+0074:  MOVWF  37
+....................  
+.................... void setup(); 
+.................... void run(); 
+.................... void display(int input); 
+....................  
+....................  
+.................... #use delay(clock=8000000) 
+*
+001B:  MOVLW  3A
+001C:  MOVWF  04
+001D:  BCF    03.7
+001E:  MOVF   00,W
+001F:  BTFSC  03.2
+0020:  GOTO   02E
+0021:  MOVLW  02
+0022:  MOVWF  21
+0023:  CLRF   20
+0024:  DECFSZ 20,F
+0025:  GOTO   024
+0026:  DECFSZ 21,F
+0027:  GOTO   023
+0028:  MOVLW  97
+0029:  MOVWF  20
+002A:  DECFSZ 20,F
+002B:  GOTO   02A
+002C:  DECFSZ 00,F
+002D:  GOTO   021
+....................  
+.................... void main(void) 
+.................... { 
+*
+0035:  CLRF   04
+0036:  BCF    03.7
+0037:  MOVLW  1F
+0038:  ANDWF  03,F
+0039:  MOVLW  71
+003A:  BSF    03.5
+003B:  MOVWF  0F
+003C:  MOVF   0F,W
+003D:  BCF    03.5
+003E:  BSF    03.6
+003F:  BCF    1F.0
+0040:  BCF    1F.1
+0041:  BCF    1F.2
+0042:  BCF    1F.3
+0043:  BCF    03.6
+0044:  BCF    1F.6
+0045:  MOVLW  00
+0046:  BSF    03.6
+0047:  MOVWF  1E
+0048:  CLRF   19
+0049:  CLRF   1A
+004A:  BSF    03.5
+004B:  CLRF   1E
+004C:  BCF    03.5
+004D:  CLRF   1B
+004E:  BCF    03.6
+004F:  BCF    0D.5
+.................... 	run(); // Runs the main function 
+*
+0075:  GOTO   004
+.................... } 
+....................  
+.................... void run () 
+.................... { // Runs indefinitely 
+0076:  GOTO   076
+....................     while (true) { 
+....................         int incr = 0; 
+*
+0004:  CLRF   38
+....................         for (incr = 0; incr <= i; incr++) { 
+0005:  CLRF   38
+0006:  MOVF   38,W
+0007:  SUBWF  37,W
+0008:  BTFSS  03.0
+0009:  GOTO   032
+....................             display(incr); 
+000A:  MOVF   38,W
+000B:  MOVWF  39
+....................             delay_ms(1000); 
+*
+0017:  MOVLW  04
+0018:  MOVWF  39
+0019:  MOVLW  FA
+001A:  MOVWF  3A
+*
+002E:  DECFSZ 39,F
+002F:  GOTO   019
+....................         } 
+0030:  INCF   38,F
+0031:  GOTO   006
+....................     } 
+0032:  GOTO   004
+.................... } 
+0033:  BCF    0A.3
+0034:  GOTO   076 (RETURN)
+....................  
+.................... // Display the voltage 
+.................... void display (int input) 
+.................... { 
+.................... 	output_c(segment_numbers[input]); 
+*
+000C:  MOVLW  2C
+000D:  ADDWF  39,W
+000E:  MOVWF  04
+000F:  BCF    03.7
+0010:  MOVF   00,W
+0011:  MOVWF  3A
+0012:  BSF    03.5
+0013:  CLRF   07
+0014:  BCF    03.5
+0015:  MOVF   3A,W
+0016:  MOVWF  07
+.................... } 
+....................  
+.................... //              /)/) 
+.................... //             ( 0 0) 
+.................... //             /'-._) 
+.................... //            /#/ 
+.................... //           /#/	Tighty Whities (Pty) Ltd. 
+.................... //          /#/		(c) 2013. For Ze Party. 
+
+Configuration Fuses:
+   Word  1: 30D4   INTRC_IO NOPROTECT NOBROWNOUT NOMCLR NOCPD NOWDT NOPUT NOIESO NOFCMEN

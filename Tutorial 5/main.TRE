@@ -1,0 +1,7 @@
+青main
+   青main  0/29  Ram=0
+      団??0??
+      団setup  0/30  Ram=0
+      青run  0/40  Ram=0
+         青display  (Inline)  Ram=2
+            青@DIV88  (Inline)  Ram=3

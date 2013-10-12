@@ -18,6 +18,24 @@ I will be uploading all my tutorials and projects to this repository as I go alo
  		- Count down every 200ms when button 2 is pressed down
  		- When no buttons are pressed, keep last count and flash it every 100ms
  		- When both buttons are pressed, reset
+ - Tutorial 4
+ 	- Light switch dimmer using PWM
+ 		- Increase duty cycle
+ 		- Decrease duty cycle
+ 		- Increase frequency
+ 		- Decrease frequency
+ - Tutorial 5
+ 	- Volt meter
+ 		- Use BCD
+ 		- Display values on 4 LED's
+ - Tutorial 6
+ 	- Volt Meter
+ 		- Use BCD
+ 		- Display values on a 7 segment display
+ - Tutorial 7
+	- Volt Meter
+		- Accurate to 2 decimal places
+		- Display to LCD display
 
 ## Projects
  - List of projects (To be populated)

@@ -1,0 +1,172 @@
+CCS PCM C Compiler, Version 4.038, 15176               26-Sep-13 14:24
+
+               Filename: main.lst
+
+               ROM used: 103 words (3%)
+                         Largest free fragment is 2048
+               RAM used: 6 (2%) at main() level
+                         11 (4%) worst case
+               Stack:    1 locations
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   04A
+0003:  NOP
+.................... // Author: Kyluke McDougall 
+....................  
+.................... #include <16F690.h> 
+.................... //////// Standard Header file for the PIC16F690 device //////////////// 
+.................... #device PIC16F690 
+.................... #list 
+....................  
+.................... #device adc=8 
+....................  
+.................... #FUSES NOWDT                    //No Watch Dog Timer 
+.................... #FUSES HS 
+.................... #FUSES INTRC_IO                 //Low power osc < 200 khz  LP 
+.................... #FUSES NOPROTECT                //Code not protected from reading 
+.................... #FUSES NOBROWNOUT               //No brownout reset 
+.................... #FUSES NOMCLR                   //Master Clear pin used for I/O 
+.................... #FUSES NOCPD                    //No EE protection 
+.................... #FUSES NOPUT                    //No Power Up Timer 
+.................... #FUSES NOIESO                   //Internal External Switch Over mode disabled 
+.................... #FUSES NOFCMEN                  //Fail-safe clock monitor disabled 
+....................  
+.................... #include "main.h" 
+.................... #define A0 PIN_A0 
+....................  
+.................... #define C0 PIN_C0 
+.................... #define C1 PIN_C1 
+.................... #define C2 PIN_C2 
+.................... #define C3 PIN_C3 
+....................  
+.................... void setup(); 
+.................... void run(); 
+.................... void display(int input); 
+....................  
+....................  
+.................... #use delay(clock=32000) 
+....................  
+.................... void main(void) 
+.................... { 
+*
+004A:  CLRF   04
+004B:  BCF    03.7
+004C:  MOVLW  1F
+004D:  ANDWF  03,F
+004E:  MOVLW  01
+004F:  BSF    03.5
+0050:  MOVWF  0F
+0051:  BCF    03.5
+0052:  BSF    03.6
+0053:  BCF    1F.0
+0054:  BCF    1F.1
+0055:  BCF    1F.2
+0056:  BCF    1F.3
+0057:  BCF    03.6
+0058:  BCF    1F.6
+0059:  MOVLW  00
+005A:  BSF    03.6
+005B:  MOVWF  1E
+005C:  CLRF   19
+005D:  CLRF   1A
+005E:  BSF    03.5
+005F:  CLRF   1E
+0060:  BCF    03.5
+0061:  CLRF   1B
+0062:  BCF    03.6
+0063:  BCF    0D.5
+.................... 	setup(); // Initial setup 
+0064:  GOTO   004
+.................... 	run(); 
+0065:  GOTO   022
+.................... } 
+....................  
+.................... void run () 
+.................... { 
+0066:  SLEEP
+....................     while (true) { 
+....................         int input = 0; 
+*
+0022:  CLRF   26
+....................         input = read_adc(); 
+0023:  BSF    1F.1
+0024:  BTFSC  1F.1
+0025:  GOTO   024
+0026:  MOVF   1E,W
+0027:  MOVWF  26
+....................         display(input); 
+0028:  MOVF   26,W
+0029:  MOVWF  27
+....................     }     
+*
+0047:  GOTO   022
+.................... } 
+0048:  BCF    0A.3
+0049:  GOTO   066 (RETURN)
+....................  
+.................... void display (int input) 
+.................... { 
+....................     output_c(input/50); 
+*
+002A:  MOVF   27,W
+002B:  MOVWF  28
+002C:  MOVLW  32
+002D:  MOVWF  29
+*
+0042:  BSF    03.5
+0043:  CLRF   07
+0044:  BCF    03.5
+0045:  MOVF   21,W
+0046:  MOVWF  07
+.................... }     
+....................  
+.................... void setup() 
+.................... { 
+.................... 	SET_TRIS_C(0); // Sets PORT C to output only 
+*
+0004:  MOVLW  00
+0005:  BSF    03.5
+0006:  MOVWF  07
+....................     setup_adc_ports(sAN0); 
+0007:  BCF    03.5
+0008:  BSF    03.6
+0009:  BCF    1F.0
+000A:  BCF    1F.1
+000B:  BCF    1F.2
+000C:  BCF    1F.3
+000D:  BCF    03.6
+000E:  BCF    1F.6
+000F:  IORLW  01
+0010:  BSF    03.6
+0011:  MOVWF  1E
+....................     setup_adc(adc_clock_internal); 
+0012:  BSF    03.5
+0013:  BCF    03.6
+0014:  BSF    1F.4
+0015:  BSF    1F.5
+0016:  BCF    1F.6
+0017:  BCF    03.5
+0018:  BCF    1F.7
+0019:  BSF    1F.0
+....................     set_adc_channel(0); 
+001A:  MOVLW  00
+001B:  MOVWF  21
+001C:  MOVF   1F,W
+001D:  ANDLW  C3
+001E:  IORWF  21,W
+001F:  MOVWF  1F
+.................... } 
+0020:  BCF    0A.3
+0021:  GOTO   065 (RETURN)
+....................  
+.................... //              /)/) 
+.................... //             ( 0 0) 
+.................... //             /'-._) 
+.................... //            /#/ 
+.................... //           /#/	Tighty Whities (Pty) Ltd. 
+.................... //          /#/		(c) 2013. For Ze Party. 
+
+Configuration Fuses:
+   Word  1: 30D4   INTRC_IO NOPROTECT NOBROWNOUT NOMCLR NOCPD NOWDT NOPUT NOIESO NOFCMEN

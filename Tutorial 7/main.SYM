@@ -1,0 +1,100 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+015-016 CCP_1
+015     CCP_1_LOW
+016     CCP_1_HIGH
+020     @SCRATCH
+021     @SCRATCH
+021     _RETURN_
+022     @SCRATCH
+023     @SCRATCH
+024     @SCRATCH
+025-026 @sprintf_string
+027-02A input
+02B     i
+02C-033 final
+034     @delay_ms1.P1
+034-037 @PRINTF_L32D_61FPFPF.P2
+034     run.@SCRATCH
+035     display.input
+035     run.@SCRATCH
+036-039 @DIVFF.P1
+036-037 @ITOF.P2
+038     @PRINTF_L32D_61FPFPF.P1
+039     @PRINTF_L32D_61FPFPF.@SCRATCH
+03A-03D @DIVFF.P1
+03A     @PRINTF_L32D_61FPFPF.@SCRATCH
+03B     @PRINTF_L32D_61FPFPF.@SCRATCH
+03C     @PRINTF_L32D_61FPFPF.@SCRATCH
+03D     @PRINTF_L32D_61FPFPF.@SCRATCH
+03E     @DIVFF.@SCRATCH
+03E     @PRINTF_L32D_61FPFPF.@SCRATCH
+03F     @DIVFF.@SCRATCH
+03F     @PRINTF_L32D_61FPFPF.@SCRATCH
+040     @DIVFF.@SCRATCH
+040     @PRINTF_L32D_61FPFPF.@SCRATCH
+041-044 @DIV3232.P1
+041     @SPRINTF.P2
+041-044 @MULFF.P3
+041-044 @FTOSD.P4
+041     @DIVFF.@SCRATCH
+042     @DIVFF.@SCRATCH
+043     @DIVFF.@SCRATCH
+045-048 @MULFF.P1
+045-048 @DIV3232.P2
+045     @FTOSD.@SCRATCH
+049     @MULFF.@SCRATCH
+049     @DIV3232.@SCRATCH
+04A     @MULFF.@SCRATCH
+04A     @DIV3232.@SCRATCH
+04B     @MULFF.@SCRATCH
+04B     @DIV3232.@SCRATCH
+04C     @MULFF.@SCRATCH
+04C     @DIV3232.@SCRATCH
+04D     @MULFF.@SCRATCH
+04D     @DIV3232.@SCRATCH
+10D-10E @READ_PROGRAM_MEMORY8.P1
+11B.6   C2OUT
+11B.7   C1OUT
+
+000A  @delay_ms1
+03E9  main
+0289  run
+02A8  @ITOF
+02D4  @DIVFF
+0106  @SPRINTF
+0127  @MULFF
+01AD  @FTOSD
+00C4  @DIV3232
+0113  @PRINTF_L32D_61FPFPF
+0004  @const74
+026E  display
+001E  setup
+003A  setup_lcd
+03B5  clear
+03E9  @cinit
+
+Project Files:
+    H:\Digital Systems 3\Tutorial 7\main.c
+    C:\PROGRA~1\PICC\devices\16F690.h
+    H:\Digital Systems 3\Tutorial 7\main.h
+
+Units:
+    main.c (main)
+
+Compiler Settings:
+    Processor:      PIC16F690
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      0
+    Short,Int,Long: 1,8,16
+
+Output Files:
+    Errors:      H:\Digital Systems 3\Tutorial 7\main.err
+    Ext Symbols: H:\Digital Systems 3\Tutorial 7\main.esym
+    INHX8:\       main.hex
+    Symbols:\     main.sym
+    List:\        main.lst
+    Debug/COFF:\  main.cof
+    Project:     H:\Digital Systems 3\Tutorial 7\main.PJT
+    Call Tree:   H:\Digital Systems 3\Tutorial 7\main.tre
+    Statistics:  H:\Digital Systems 3\Tutorial 7\main.sta

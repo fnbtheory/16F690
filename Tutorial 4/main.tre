@@ -1,0 +1,10 @@
+ÀÄmain
+   ÀÄmain  0/40  Ram=0
+      ÃÄ??0??
+      ÃÄsetup  0/26  Ram=0
+      ÀÄbutton  0/56  Ram=0
+         ÃÄfrequency_down  (Inline)  Ram=0
+         ÃÄfrequency_up  (Inline)  Ram=0
+         ÃÄduty_down  (Inline)  Ram=0
+         ÃÄduty_up  (Inline)  Ram=0
+         ÀÄdisplay  (Inline)  Ram=0

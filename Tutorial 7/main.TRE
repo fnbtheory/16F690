@@ -1,0 +1,26 @@
+ÀÄmain
+   ÀÄmain  0/31  Ram=0
+      ÃÄ??0??
+      ÃÄsetup  0/166  Ram=0
+      ³  ÀÄsetup_lcd  (Inline)  Ram=0
+      ³     ÃÄ@delay_ms1  0/20  Ram=1
+      ³     ÃÄ@delay_ms1  0/20  Ram=1
+      ³     ÃÄ@delay_ms1  0/20  Ram=1
+      ³     ÀÄ@delay_ms1  0/20  Ram=1
+      ÀÄrun  0/352  Ram=2
+         ÃÄ@ITOF  (Inline)  Ram=2
+         ÃÄ@DIVFF  (Inline)  Ram=14
+         ÃÄ@PRINTF_L32D_61FPFPF  0/347  Ram=13
+         ³  ÃÄ@MULFF  (Inline)  Ram=13
+         ³  ÃÄ@FTOSD  (Inline)  Ram=5
+         ³  ÃÄ@DIV3232  0/66  Ram=13
+         ³  ÃÄ@SPRINTF  0/13  Ram=1
+         ³  ÃÄ@SPRINTF  0/13  Ram=1
+         ³  ÃÄ@SPRINTF  0/13  Ram=1
+         ³  ÃÄ@SPRINTF  0/13  Ram=1
+         ³  ÀÄ@DIV3232  0/66  Ram=13
+         ÃÄclear  (Inline)  Ram=0
+         ³  ÀÄ@delay_ms1  0/20  Ram=1
+         ÃÄdisplay  0/27  Ram=1
+         ÃÄ@const74  0/6  Ram=0
+         ÀÄdisplay  0/27  Ram=1

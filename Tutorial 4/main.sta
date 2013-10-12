@@ -1,0 +1,51 @@
+
+ROM used: 126 (3%)
+          126 (3%) including unused fragments
+
+          0 Average locations per line
+          3 Average locations per statement
+
+RAM used: 8 (3%) at main() level
+          8 (3%) worst case
+
+Stack used: 1 worst case (out of 8 total available)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  121    37 100  main.c
+  379     0   0  ..\..\..\..\..\..\..\..\..\PROGRA~2\PICC\devices\16F690.h
+   16     0   0  main.h
+----- -----
+  516    37 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     40  32   0    61  1.2  main
+0     56  44   0   235  3.1  button
+ Inline        0    37  2.3  frequency_down
+ Inline        0    38  1.8  frequency_up
+ Inline        0    38  1.8  duty_down
+ Inline        0    37  2.3  duty_up
+ Inline        0    50  1.5  display
+0     26  21   0   132  2.2  setup
+
+Program metrics:
+    Functions               8
+    Statements              37
+    Comments                111
+    Volume (V)              1065
+    Difficilty (D)          17.0
+    Effort to implement (E) 18107
+    Time to implement (T)   17 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   8
+    Maintainability (MI)    96
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-007FF   122  1922  
+00800-00EFF     0  1792  
+
+
+

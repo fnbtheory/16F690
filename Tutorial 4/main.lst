@@ -1,0 +1,293 @@
+CCS PCM C Compiler, Version 4.057, 4010               05-Sep-13 17:15
+
+               Filename: main.lst
+
+               ROM used: 126 words (3%)
+                         Largest free fragment is 1922
+               RAM used: 8 (3%) at main() level
+                         8 (3%) worst case
+               Stack:    1 locations
+
+*
+0000:  NOP
+0001:  MOVLW  00
+0002:  MOVWF  0A
+0003:  GOTO   056
+.................... // Author: Kyluke McDougall 
+....................  
+.................... #include <16F690.h> 
+.................... //////// Standard Header file for the PIC16F690 device //////////////// 
+.................... #device PIC16F690 
+.................... #list 
+....................  
+.................... #device adc=8 
+....................  
+.................... #FUSES NOWDT                    //No Watch Dog Timer 
+.................... #FUSES HS 
+.................... #FUSES INTRC_IO                 //Low power osc < 200 khz  LP 
+.................... #FUSES NOPROTECT                //Code not protected from reading 
+.................... #FUSES NOBROWNOUT               //No brownout reset 
+.................... #FUSES NOMCLR                   //Master Clear pin used for I/O 
+.................... #FUSES NOCPD                    //No EE protection 
+.................... #FUSES NOPUT                    //No Power Up Timer 
+.................... #FUSES NOIESO                   //Internal External Switch Over mode disabled 
+.................... #FUSES NOFCMEN                  //Fail-safe clock monitor disabled 
+....................  
+.................... #include "main.h" 
+.................... #define B4 PIN_B4 
+.................... #define B5 PIN_B5 
+.................... #define B6 PIN_B6 
+.................... #define B7 PIN_B7 
+....................  
+.................... int period = 100; 
+*
+0071:  MOVLW  64
+0072:  MOVWF  25
+.................... int duty = 50; 
+0073:  MOVLW  32
+0074:  MOVWF  26
+....................  
+.................... void button(); 
+.................... void frequency_up(); 
+.................... void frequency_down(); 
+.................... void duty_up(); 
+.................... void duty_down(); 
+.................... void display(); 
+.................... void setup(); 
+....................  
+....................  
+.................... #use delay(clock=32000) 
+....................  
+.................... void main(void) 
+.................... { 
+*
+0056:  CLRF   04
+0057:  BCF    03.7
+0058:  MOVLW  1F
+0059:  ANDWF  03,F
+005A:  MOVLW  01
+005B:  BSF    03.5
+005C:  MOVWF  0F
+005D:  MOVF   0F,W
+005E:  BCF    03.5
+005F:  BSF    03.6
+0060:  BCF    1F.0
+0061:  BCF    1F.1
+0062:  BCF    1F.2
+0063:  BCF    1F.3
+0064:  BCF    03.6
+0065:  BCF    1F.6
+0066:  MOVLW  00
+0067:  BSF    03.6
+0068:  MOVWF  1E
+0069:  CLRF   19
+006A:  CLRF   1A
+006B:  BSF    03.5
+006C:  CLRF   1E
+006D:  BCF    03.5
+006E:  CLRF   1B
+006F:  BCF    03.6
+0070:  BCF    0D.5
+.................... 	SET_TRIS_C(0); // Sets PORT C to output only 
+*
+0075:  MOVLW  00
+0076:  BSF    03.5
+0077:  MOVWF  07
+.................... 	SET_TRIS_B(240); // Setuo PORT B to use for inputs 
+0078:  MOVLW  F0
+0079:  MOVWF  06
+.................... 	setup(); // Initial setup 
+007A:  BCF    03.5
+007B:  GOTO   004
+.................... 	button(); // Calls the function button() 
+007C:  GOTO   01E
+.................... } 
+....................  
+.................... void button() 
+.................... { 
+007D:  GOTO   07D
+....................     while(true) 
+.................... 	{ 
+....................         if(!input(B4)) // Frequency Down 
+*
+001E:  BSF    03.5
+001F:  BSF    06.4
+0020:  BCF    03.5
+0021:  BTFSC  06.4
+0022:  GOTO   029
+....................         { 
+....................             frequency_down(); 
+....................         } 
+....................         else if(!input(B5)) // Frequency Up 
+*
+0028:  GOTO   049
+0029:  BSF    03.5
+002A:  BSF    06.5
+002B:  BCF    03.5
+002C:  BTFSC  06.5
+002D:  GOTO   034
+....................         { 
+....................             frequency_up(); 
+....................         } 
+....................         else if(!input(B6)) // Duty Down 
+*
+0033:  GOTO   049
+0034:  BSF    03.5
+0035:  BSF    06.6
+0036:  BCF    03.5
+0037:  BTFSC  06.6
+0038:  GOTO   03F
+....................         { 
+....................             duty_down(); 
+....................         } 
+.................... 		else if(!input(B7)) // Duty Up 
+*
+003E:  GOTO   049
+003F:  BSF    03.5
+0040:  BSF    06.7
+0041:  BCF    03.5
+0042:  BTFSC  06.7
+0043:  GOTO   049
+....................         { 
+....................             duty_up(); 
+....................         } 
+....................         display(); // Update display after every change 
+....................     } 
+*
+0052:  GOTO   01F
+.................... } 
+0053:  BCF    03.5
+0054:  BCF    0A.3
+0055:  GOTO   07D (RETURN)
+....................  
+.................... void frequency_down() 
+.................... { 
+.................... 	// If the period still greater than the duty, subtract 
+....................     if (period > duty) 
+*
+0023:  MOVF   25,W
+0024:  SUBWF  26,W
+0025:  BTFSC  03.0
+0026:  GOTO   028
+....................     { 
+....................         period--; // Decrease period 
+0027:  DECF   25,F
+....................     } 
+.................... } 
+....................  
+.................... void frequency_up() 
+.................... { 
+.................... 	// Do not allow the period to go above 200 
+....................     if (period < 200)  
+*
+002E:  MOVF   25,W
+002F:  SUBLW  C7
+0030:  BTFSS  03.0
+0031:  GOTO   033
+....................     { 
+....................         period++; // Increase period 
+0032:  INCF   25,F
+....................     } 
+.................... } 
+....................  
+.................... void duty_down() 
+.................... { 
+.................... 	// Do not allow the duty to go below 1 
+....................     if (duty > 1)  
+*
+0039:  MOVF   26,W
+003A:  SUBLW  01
+003B:  BTFSC  03.0
+003C:  GOTO   03E
+....................     { 
+....................         duty--; // Decrease duty 
+003D:  DECF   26,F
+....................     } 
+.................... } 
+....................  
+.................... void duty_up() 
+.................... { 
+.................... 	// If the period still greater than the duty, add 
+....................     if (duty < period)  
+*
+0044:  MOVF   25,W
+0045:  SUBWF  26,W
+0046:  BTFSC  03.0
+0047:  GOTO   049
+....................     { 
+....................         duty++;  
+0048:  INCF   26,F
+....................     } 
+.................... } 
+....................  
+.................... // Update the output with the new values 
+.................... void display() 
+.................... { 
+....................     set_pwm1_duty(duty); 
+0049:  MOVF   26,W
+004A:  MOVWF  15
+.................... 	setup_timer_2(t2_div_by_1,period,1); 
+004B:  MOVLW  00
+004C:  MOVWF  21
+004D:  IORLW  04
+004E:  MOVWF  12
+004F:  MOVF   25,W
+0050:  BSF    03.5
+0051:  MOVWF  12
+.................... } 
+....................  
+.................... // Initial setup of pic 
+.................... void setup() 
+.................... { 
+.................... 	// Switch the ADC off 
+.................... 	setup_adc(adc_off); 
+*
+0004:  BCF    1F.0
+.................... 	 
+.................... 	// Setup the individual ports for pulse steering 
+.................... 	// h_l means whilst half are high the other half is low 
+.................... 	setup_ccp1(ccp_pwm_h_l | ccp_pulse_steering_a 
+.................... 						   | ccp_pulse_steering_b 
+.................... 						   | ccp_pulse_steering_c 
+.................... 						   | ccp_pulse_steering_d); 
+0005:  BSF    03.5
+0006:  BCF    07.5
+0007:  BCF    03.5
+0008:  BCF    07.5
+0009:  MOVLW  0D
+000A:  MOVWF  17
+000B:  CLRF   1C
+000C:  MOVLW  0F
+000D:  BSF    03.5
+000E:  BSF    03.6
+000F:  MOVWF  1D
+.................... 	 
+.................... 	// Setup the initial output with the default values 
+.................... 	set_pwm1_duty(duty); 
+0010:  BCF    03.5
+0011:  BCF    03.6
+0012:  MOVF   26,W
+0013:  MOVWF  15
+.................... 	setup_timer_2(t2_div_by_1,period,1); 
+0014:  MOVLW  00
+0015:  MOVWF  21
+0016:  IORLW  04
+0017:  MOVWF  12
+0018:  MOVF   25,W
+0019:  BSF    03.5
+001A:  MOVWF  12
+....................  
+.................... } 
+001B:  BCF    03.5
+001C:  BCF    0A.3
+001D:  GOTO   07C (RETURN)
+....................  
+.................... //              /)/) 
+.................... //             ( 0 0) 
+.................... //             /'-._) 
+.................... //            /#/ 
+.................... //           /#/	Tighty Whities (Pty) Ltd. 
+.................... //          /#/		(c) 2013. For Ze Party. 
+
+Configuration Fuses:
+   Word  1: 30D4   INTRC_IO NOPROTECT NOBROWNOUT NOMCLR NOCPD NOWDT NOPUT NOIESO NOFCMEN

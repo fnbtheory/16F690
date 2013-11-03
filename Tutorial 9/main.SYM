@@ -1,0 +1,140 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+015-016 CCP_1
+015     CCP_1_LOW
+016     CCP_1_HIGH
+020     @SCRATCH
+021     @SCRATCH
+021     _RETURN_
+022     @SCRATCH
+023     @SCRATCH
+024     @SCRATCH
+025     @INTERRUPT_AREA
+026     @INTERRUPT_AREA
+027     @INTERRUPT_AREA
+028     @INTERRUPT_AREA
+029     @INTERRUPT_AREA
+02A     @INTERRUPT_AREA
+02B     @INTERRUPT_AREA
+02C     @INTERRUPT_AREA
+02D     @INTERRUPT_AREA
+02E     @INTERRUPT_AREA
+02F     run.incr
+030     output
+031     display.out
+031     run.@SCRATCH
+032     run.@SCRATCH
+033     run.@SCRATCH
+034     run.@SCRATCH
+035-036 @ITOF.P1
+035     run.@SCRATCH
+036     run.@SCRATCH
+037     run.@SCRATCH
+038     run.@SCRATCH
+039-03C pow.x
+03D-040 pow.y
+041     pow.@SCRATCH
+042     pow.@SCRATCH
+043     pow.@SCRATCH
+044     pow.@SCRATCH
+045-048 log.x
+045     pow.@SCRATCH
+046-049 exp.x
+049-04C log.y
+04A-04D exp.y
+04D-050 log.res
+04E-051 exp.res
+051-054 log.r
+052-055 exp.r
+055-058 log.y2
+056     exp.n
+057.0   exp.s
+058-05B @SFTOI.P1
+058     exp.@SCRATCH
+059     log.n
+059     exp.@SCRATCH
+05A-05D @MULFF.P1
+05A-05D @FLT.P2
+05A     exp.@SCRATCH
+05A     log.@SCRATCH
+05B     exp.@SCRATCH
+05B     log.@SCRATCH
+05C-05D @SITOF.P1
+05C     log.@SCRATCH
+05D     log.@SCRATCH
+05E-061 @DIVFF.P1
+05E-061 @ADDFF.P2
+05E-061 @FLT.P3
+05E-061 @MULFF.P4
+062-065 @ADDFF.P1
+062-065 @DIVFF.P2
+062     @FLT.@SCRATCH
+062     @MULFF.@SCRATCH
+063     @FLT.@SCRATCH
+063     @MULFF.@SCRATCH
+064     @MULFF.@SCRATCH
+065     @MULFF.@SCRATCH
+066     @DIVFF.@SCRATCH
+066     @ADDFF.@SCRATCH
+066     @MULFF.@SCRATCH
+067     @DIVFF.@SCRATCH
+067     @ADDFF.@SCRATCH
+068     @DIVFF.@SCRATCH
+068     @ADDFF.@SCRATCH
+069     @DIVFF.@SCRATCH
+069     @ADDFF.@SCRATCH
+06A     @DIVFF.@SCRATCH
+06A     @ADDFF.@SCRATCH
+06B     @DIVFF.@SCRATCH
+06B     @ADDFF.@SCRATCH
+06C     @ADDFF.@SCRATCH
+06D     @ADDFF.@SCRATCH
+06E     isrext.@SCRATCH
+06F     @delay_ms1.P1
+10D-10E @READ_PROGRAM_MEMORY8.P1
+11B.6   C2OUT
+11B.7   C1OUT
+
+005F  @FLT
+0581  @SFTOI
+080A  @ITOF
+01DF  @DIVFF
+009E  @ADDFF
+02A9  @MULFF
+05A0  exp
+031E  @SITOF
+0343  log
+083E  pow
+0035  @delay_ms1
+077B  MAIN
+0800  run
+08CD  display
+0053  setup
+0049  isrext
+077B  @cinit
+
+Project Files:
+    H:\Digital Systems 3\Tutorial 9\main.c
+    C:\PROGRA~1\PICC\devices\16F690.h
+    H:\Digital Systems 3\Tutorial 9\main.h
+    C:\PROGRA~1\PICC\drivers\math.h
+
+Units:
+    main.c (main)
+
+Compiler Settings:
+    Processor:      PIC16F690
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      0
+    Short,Int,Long: 1,8,16
+
+Output Files:
+    Errors:      H:\Digital Systems 3\Tutorial 9\main.err
+    Ext Symbols: H:\Digital Systems 3\Tutorial 9\main.esym
+    INHX8:\       main.hex
+    Symbols:\     main.sym
+    List:\        main.lst
+    Debug/COFF:\  main.cof
+    Project:     H:\Digital Systems 3\Tutorial 9\main.PJT
+    Call Tree:   H:\Digital Systems 3\Tutorial 9\main.tre
+    Statistics:  H:\Digital Systems 3\Tutorial 9\main.sta

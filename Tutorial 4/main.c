@@ -14,6 +14,8 @@
 #FUSES NOIESO                   //Internal External Switch Over mode disabled
 #FUSES NOFCMEN                  //Fail-safe clock monitor disabled
 
+#use rs232(baud=9600, xmit=B7, rcv=B5)
+
 #include "main.h"
 
 #use delay(clock=32000)

@@ -36,6 +36,11 @@ I will be uploading all my tutorials and projects to this repository as I go alo
 	- Volt Meter
 		- Accurate to 2 decimal places
 		- Display to LCD display
+ - Tutorial 8
+ 	- Use RS232 to display a message on a PC
+ 	- Use an LCD to display whatever is typed on the PC
+ - Tutorial 9
+ 	- Make use of an interrupt to distrupt and continue a program
 
 ## Projects
  - List of projects (To be populated)

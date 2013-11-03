@@ -1,0 +1,16 @@
+ÀÄmain
+   ÀÄmain  0/39  Ram=0
+      ÃÄ??0??
+      ÃÄsetup  0/145  Ram=0
+      ³  ÀÄsetup_lcd  (Inline)  Ram=0
+      ³     ÃÄ@delay_ms1  0/20  Ram=1
+      ³     ÃÄ@delay_ms1  0/20  Ram=1
+      ³     ÃÄ@delay_ms1  0/20  Ram=1
+      ³     ÀÄ@delay_ms1  0/20  Ram=1
+      ÀÄrun  0/117  Ram=2
+         ÃÄ@const58  0/17  Ram=0
+         ÃÄdisplay  (Inline)  Ram=1
+         ÃÄnext_line  (Inline)  Ram=0
+         ³  ÀÄ@delay_ms1  0/20  Ram=1
+         ÀÄclear  (Inline)  Ram=0
+            ÀÄ@delay_ms1  0/20  Ram=1
